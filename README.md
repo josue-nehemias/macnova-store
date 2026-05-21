@@ -1,0 +1,1 @@
+# macnova-store
