@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import api from '@/lib/api'
 
 type Producto = {
@@ -61,9 +62,10 @@ export default function FeaturedProducts() {
           >
             <div className="flex gap-[22px] min-w-max pr-[170px]">
               {productos.map((producto) => (
-                <article
+                <Link
                   key={producto.id}
-                  className="w-[260px] h-[430px] bg-white rounded-[16px] border border-[#eeeeee] shadow-[0_2px_12px_rgba(0,0,0,0.08)] shrink-0 overflow-hidden"
+                  href={`/producto/${producto.id}`}
+                  className="w-[260px] h-[430px] bg-white rounded-[16px] border border-[#eeeeee] shadow-[0_2px_12px_rgba(0,0,0,0.08)] shrink-0 overflow-hidden hover:shadow-[0_6px_22px_rgba(0,0,0,0.14)] transition"
                 >
                   <div className="h-[178px] flex items-end justify-center px-6 pt-7">
                     <img
@@ -99,7 +101,7 @@ export default function FeaturedProducts() {
                       S/ {producto.precio}
                     </p>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </div>
